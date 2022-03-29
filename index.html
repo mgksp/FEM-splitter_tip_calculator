@@ -4,10 +4,83 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Splitter | Tip Calculator</title>
   </head>
   <body>
+    <main>
+      <div class="title">
+        <h1>spli</h1>
+        <h1>tter</h1>
+      </div>
+      <div class="card">
+        <div class="form-container">
+          <div class="form-control">
+            <label for="bill-amount">Bill</label>
+            <div class="custom-input">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <input type="number" id="bill-amount" placeholder="100.50" />
+            </div>
+          </div>
+          <div class="form-control">
+            <label> Select Tip </label>
+            <div class="tip-grid">
+              <div class="tip-percentage">5%</div>
+              <div class="tip-percentage">10%</div>
+              <div class="tip-percentage">15%</div>
+              <div class="tip-percentage">25%</div>
+              <div class="tip-percentage">50%</div>
+              <div class="custom-tip-percentage">
+                <input
+                  type="number"
+                  id="custom-tip-percentage"
+                  placeholder="custom"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="">Number of People</label>
+            <div class="custom-input">
+              <i class="fa-solid fa-user-group"></i>
+              <input type="number" id="no-of-people" placeholder="3" />
+            </div>
+          </div>
+        </div>
+        <div class="result-container">
+          <div class="amount-container">
+            <div class="details-con">
+              <div>
+                <div class="heading">Tip Amount</div>
+                <div class="sub-heading">/ Person</div>
+              </div>
+              <div class="amount">120</div>
+            </div>
+            <div class="details-con">
+              <div>
+                <div class="heading">Total</div>
+                <div class="sub-heading">/ Person</div>
+              </div>
+              <div class="amount">1120</div>
+            </div>
+          </div>
+          <button class="reset-btn">Reset</button>
+        </div>
+      </div>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>
