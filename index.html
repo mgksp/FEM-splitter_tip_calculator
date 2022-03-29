@@ -38,11 +38,11 @@
           <div class="form-control">
             <label> Select Tip </label>
             <div class="tip-grid">
-              <div class="tip-percentage">5%</div>
-              <div class="tip-percentage">10%</div>
-              <div class="tip-percentage">15%</div>
-              <div class="tip-percentage">25%</div>
-              <div class="tip-percentage">50%</div>
+              <div data-tip="5" class="tip-percentage">5%</div>
+              <div data-tip="10" class="tip-percentage active-tip">10%</div>
+              <div data-tip="15" class="tip-percentage">15%</div>
+              <div data-tip="25" class="tip-percentage">25%</div>
+              <div data-tip="50" class="tip-percentage">50%</div>
               <div class="custom-tip-percentage">
                 <input
                   type="number"
@@ -67,14 +67,14 @@
                 <div class="heading">Tip Amount</div>
                 <div class="sub-heading">/ Person</div>
               </div>
-              <div class="amount">120</div>
+              <div id="tip-amount" class="amount">$0</div>
             </div>
             <div class="details-con">
               <div>
                 <div class="heading">Total</div>
                 <div class="sub-heading">/ Person</div>
               </div>
-              <div class="amount">1120</div>
+              <div id="total-amount" class="amount">$0</div>
             </div>
           </div>
           <button class="reset-btn">Reset</button>
