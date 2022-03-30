@@ -25,8 +25,11 @@ function calculateTip() {
 
   const tips = (tipPercentage / 100) * billAmount;
 
-  tipAmount.textContent = `$${tips / noOfPeople}`;
-  totalAmount.textContent = `$${billAmount / noOfPeople + tips / noOfPeople}`;
+  tipAmount.textContent = `$${(tips / noOfPeople).toFixed(2)}`;
+  totalAmount.textContent = `$${(
+    billAmount / noOfPeople +
+    tips / noOfPeople
+  ).toFixed(2)}`;
 }
 
 tipPercentages.forEach((tipPercent) => {
@@ -59,6 +62,6 @@ resetBtn.addEventListener("click", () => {
   noOfPeopleInput.value = "";
   removeActiveTipClass();
   tipPercentages[1].classList.add("active-tip");
-  tipAmount.textContent = "$0";
-  totalAmount.textContent = "$0";
+  tipAmount.textContent = "$0.00";
+  totalAmount.textContent = "$0.00";
 });
