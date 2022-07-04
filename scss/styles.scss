@@ -1,0 +1,261 @@
+$first-breakpoint: 768px;
+
+@mixin breakpoint($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-strong-cyan: hsl(172, 67%, 45%);
+  --color-strong-cyan-hover: hsl(172, 67%, 50%);
+
+  --color-very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --color-light-grayish-cyan: hsl(185, 41%, 84%);
+  --color-grayish-cyan: hsl(184, 14%, 56%);
+  --color-dark-grayish-cyan: hsl(186, 14%, 43%);
+  --color-very-dark-cyan: hsl(183, 100%, 15%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --br-4: 0.4rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  background-color: var(--color-light-grayish-cyan);
+}
+
+input {
+  background-color: var(--color-very-light-grayish-cyan);
+  color: var(--color-very-dark-cyan);
+  caret-color: var(--color-strong-cyan);
+  font-size: 2.4rem;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+input:focus {
+  outline: 2px solid var(--color-strong-cyan);
+}
+
+input::placeholder {
+  color: var(--color-grayish-cyan);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+main {
+  min-height: calc(100vh - 1.7rem);
+  display: grid;
+  place-content: center;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+
+  @include breakpoint($first-breakpoint) {
+    padding: 0;
+    margin-bottom: 8.8rem;
+  }
+}
+
+.card {
+  background-color: var(--color-white);
+  max-width: 92rem;
+  margin-inline: auto;
+  border-top-left-radius: 2.4rem;
+  border-top-right-radius: 2.4rem;
+  padding: 2.4rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
+  @include breakpoint($first-breakpoint) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.2rem;
+    border-radius: 2.4rem;
+  }
+
+  .form-container {
+    color: var(--color-dark-grayish-cyan);
+    padding: 0.8rem;
+
+    @include breakpoint($first-breakpoint) {
+      padding: 1.6rem;
+    }
+
+    .form-control {
+      margin-bottom: 3.2rem;
+
+      @include breakpoint($first-breakpoint) {
+        margin-bottom: 4rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      & > label {
+        display: block;
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .custom-input {
+        position: relative;
+
+        & > input {
+          width: 100%;
+          text-align: right;
+          padding: 0.6rem 1.6rem;
+          border-radius: var(--br-4);
+          border: none;
+        }
+
+        & > i {
+          position: absolute;
+          top: 50%;
+          left: 1.6rem;
+          font-size: 1.4rem;
+          transform: translateY(-50%);
+          color: var(--color-grayish-cyan);
+        }
+      }
+
+      .tip-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+
+        @include breakpoint($first-breakpoint) {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.4rem;
+        }
+
+        .tip-percentage {
+          background-color: var(--color-very-dark-cyan);
+          color: var(--color-very-light-grayish-cyan);
+          border-radius: var(--br-4);
+          padding-block: 0.6rem;
+          text-align: center;
+          cursor: pointer;
+          transition: background-color 100ms ease-in;
+
+          &:hover {
+            background-color: var(--color-strong-cyan-hover);
+          }
+        }
+
+        .active-tip {
+          background-color: var(--color-strong-cyan);
+          color: var(--color-very-dark-cyan);
+        }
+
+        .custom-tip-percentage {
+          & > input {
+            border-radius: var(--br-4);
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  .result-container {
+    background-color: var(--color-very-dark-cyan);
+    border-radius: 1.4rem;
+    padding: 2.4rem;
+    display: grid;
+    grid-template-rows: 1fr min-content;
+
+    @include breakpoint($first-breakpoint) {
+      padding: 4rem;
+    }
+
+    .amount-container {
+      .details-con {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2.4rem;
+
+        .heading {
+          color: var(--color-very-light-grayish-cyan);
+          font-size: 1.6rem;
+        }
+        .sub-heading {
+          color: var(--color-grayish-cyan);
+          font-size: 1.3rem;
+        }
+        .amount {
+          color: var(--color-strong-cyan);
+          font-size: 3.2rem;
+
+          @include breakpoint($first-breakpoint) {
+            font-size: 4.8rem;
+          }
+        }
+      }
+    }
+
+    .reset-btn {
+      margin-top: 0.8rem;
+      background-color: var(--color-strong-cyan);
+      color: var(--color-very-dark-cyan);
+      padding-block: 0.8rem;
+      font-family: inherit;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      width: 100%;
+      border-radius: var(--br-4);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: background-color 100ms ease-in;
+
+      &:hover {
+        background-color: var(--color-strong-cyan-hover);
+      }
+    }
+  }
+}
+
+footer {
+  font-size: 1rem;
+  background-color: white;
+  text-align: center;
+  color: var(--color-dark-grayish-cyan);
+
+  @include breakpoint($first-breakpoint) {
+    background-color: transparent;
+  }
+
+  a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color-strong-cyan);
+  }
+}
