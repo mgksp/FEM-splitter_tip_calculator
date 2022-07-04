@@ -34,6 +34,7 @@ function calculateTip() {
 
 tipPercentages.forEach((tipPercent) => {
   tipPercent.addEventListener("click", () => {
+    customTipPercentageInput.value = "";
     removeActiveTipClass();
     tipPercent.classList.add("active-tip");
     tipPercentage = Number(tipPercent.dataset.tip);
@@ -60,6 +61,7 @@ noOfPeopleInput.addEventListener("input", (evt) => {
 resetBtn.addEventListener("click", () => {
   billAmtInput.value = "";
   noOfPeopleInput.value = "";
+  customTipPercentageInput.value = "";
   removeActiveTipClass();
   tipPercentages[1].classList.add("active-tip");
   tipAmount.textContent = "$0.00";
